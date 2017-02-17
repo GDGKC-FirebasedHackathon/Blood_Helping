@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {Actions} from 'react-native-router-flux'
 import firebaseApp from './Firebase'
-import { Container, Content, Button,Header, Row, Grid } from 'native-base';
+import { Container, Content, Button,Header, Row, Grid,Body,Title,Left, Right} from 'native-base';
 export default class Login extends Component{
   constructor() {
     super()
@@ -42,7 +42,7 @@ this.unsubscribe()
   render() {
     return (
         <Container>
-        <Header/>
+        <Header><Body><Title>로그인</Title></Body><Right/></Header>
       <View style={styles.container}>
         <View >
           <TextInput
@@ -59,12 +59,13 @@ this.unsubscribe()
             placeholder="Your Password"
             secureTextEntry = {true}
           />
-          <View style={{height:10}}></View>
+          <View style={{height:20}}></View>
         </View>
             <Content>
             <Row>
+                <View style={{width:60}}></View>
                 <Button danger  onPress={this._login.bind(this)}><Text>로그인</Text></Button>
-
+                <View style={{width:100}}></View>
                 <Button danger onPress={Actions.Register}><Text>회원가입</Text></Button>
             </Row>
             </Content>

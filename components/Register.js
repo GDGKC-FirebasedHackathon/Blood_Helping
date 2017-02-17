@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {Actions} from 'react-native-router-flux'
 import firebaseApp from './Firebase'
-
+import { Container, Content, Button,Header, Row, Grid } from 'native-base';
 export default class Login extends Component{
   constructor(props) {
     super(props)
@@ -36,8 +36,11 @@ componentWillUnmount () {
 }
   render() {
     return (
+        <Container>
+        <Header />
       <View style={styles.container}>
         <View >
+
           <TextInput
             onChangeText={(email)=> this.state.email = email}
             style={styles.login}
@@ -53,15 +56,14 @@ componentWillUnmount () {
             secureTextEntry = {true}
           />
 
-        <TouchableOpacity style={styles.button} onPress={this._registration.bind(this)}>
-              <Text style={styles.btntext}>
-                Registration
-              </Text>
-            </TouchableOpacity>
-
-
         </View>
+        <Content>
+            <View style={{height:50}}></View>
+            <View style={{width:60}}></View>
+            <Button danger  onPress={this._registration.bind(this)}><Text>등록</Text></Button>
+        </Content>
       </View>
+      </Container>
     )
   }
 }

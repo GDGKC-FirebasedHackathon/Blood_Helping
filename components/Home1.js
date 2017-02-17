@@ -64,6 +64,12 @@ export default class Home1 extends Component{
       // An error happened.
     });
   }
+  _items(text){
+      var items = [];
+      items.push={
+          "title" : text
+      }
+  }
   render() {
     firebaseApp.auth().onAuthStateChanged(user => {
       if (user) {
@@ -88,16 +94,16 @@ export default class Home1 extends Component{
                 <Content>
                 <TextInput
                 style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-                value={this.state.text}
+                value1={this._items(this.state.text1)}
                 />
                 <TextInput
                 style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-                value={this.state.text2}
+                value2={this._items(this.state.text2)}
                 />
                 </Content>
                 <Footer>
                   <FooterTab>
-                    <Button full onPress={this._addItem.bind(this)}>
+                    <Button full onPress={this._addItem.bind()}>
                       <Text>올리기</Text>
                     </Button>
                   </FooterTab>
@@ -108,8 +114,9 @@ export default class Home1 extends Component{
   }
 
   _addItem() {
+      this.itemsRef.push({ title: "text" })
+
         Actions.Home()
-        this.itemsRef.push({ title: "text" })
 
     }
 
