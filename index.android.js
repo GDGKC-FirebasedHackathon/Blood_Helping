@@ -17,8 +17,8 @@ const StatusBar = require('./components/StatusBar');
 import Login from './components/Login'
 import Register from './components/Register'
 import Home from './components/Home'
+import Home1 from './components/Home1'
 export default class Blood_Helping extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -33,6 +33,7 @@ export default class Blood_Helping extends Component {
             <Scene key="Login" component={Login} title="Login" hideNavBar={true} initial/>
             <Scene key="Register" component={Register} title="Register" hideNavBar={false}/>
             <Scene key="Home" component={Home} title="Home" hideNavBar={true} />
+            <Scene key="Home1" component={Home1} title="Home1" hideNavBar={true} />
             </Scene>
         </Router>
 

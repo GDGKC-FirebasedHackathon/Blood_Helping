@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import {Actions} from 'react-native-router-flux'
 import firebaseApp from './Firebase'
-
+import { Container, Content, Button,Header, Row, Grid } from 'native-base';
 export default class Login extends Component{
   constructor() {
     super()
@@ -41,6 +41,8 @@ this.unsubscribe()
 
   render() {
     return (
+        <Container>
+        <Header/>
       <View style={styles.container}>
         <View >
           <TextInput
@@ -57,24 +59,27 @@ this.unsubscribe()
             placeholder="Your Password"
             secureTextEntry = {true}
           />
-
-        <TouchableOpacity style={styles.button} onPress={this._login.bind(this)}>
-              <Text style={styles.btntext}>
-                Login
-              </Text>
-            </TouchableOpacity>
+          <View style={{height:10}}></View>
         </View>
-        <TouchableOpacity onPress={Actions.Register} style={styles.button}>
-          <Text style={styles.btntext}>
-            Registration
-          </Text>
-        </TouchableOpacity>
+            <Content>
+            <Row>
+                <Button danger  onPress={this._login.bind(this)}><Text>로그인</Text></Button>
+
+                <Button danger onPress={Actions.Register}><Text>회원가입</Text></Button>
+            </Row>
+            </Content>
       </View>
+      </Container>
+
     )
   }
 }
 
-
+/*<TouchableOpacity onPress={Actions.Register} style={styles.button}>
+  <Text style={styles.btntext}>
+    Registration
+  </Text>
+</TouchableOpacity>*/
 const styles = StyleSheet.create({
   container: {
     flex:1,
@@ -92,7 +97,7 @@ const styles = StyleSheet.create({
   button: {
     justifyContent:'center',
     alignItems: 'center',
-      backgroundColor:'#5FBD31',
+      backgroundColor:'#ff0000',
       height: 40,
       marginTop:20,
 
